@@ -1,10 +1,13 @@
 package com.example.demo;
 
+import com.example.demo.student.Student;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
 @SpringBootApplication
@@ -22,9 +25,17 @@ public class DemoApplication {
 	}
 
 
-	//http://localhost:8080/hello-list
-	@GetMapping("/hello-list")
-	public List<String> helloList(){
-		return  List.of("Martin", "Wainaina");
+	//http://localhost:8080/students-list
+	@GetMapping("/students-list")
+	public List<Student> helloList(){
+		return  List.of(
+				new Student(
+						1L,
+						"Martin",
+						"martinwainaina001@gmail.com",
+						LocalDate.of(1999, Month.NOVEMBER, 23),
+						23
+				)
+		);
 	}
 }
