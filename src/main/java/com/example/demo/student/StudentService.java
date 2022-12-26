@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
 @Service //Will make it a spring bin component/service.
 public class StudentService {
@@ -17,16 +18,20 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
+    //GET
     public List<Student> getStudents(){
-//        return  List.of(
-//                new Student(
-//                        1L,
-//                        "Martin",
-//                        "martinwainaina001@gmail.com",
-//                        LocalDate.of(1999, Month.NOVEMBER, 23),
-//                        23
-//                )
-//        );
         return  studentRepository.findAll();
+    }
+
+    //POST
+    public void addNewStudent(Student student) {
+        Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
+        //if email already exists, throw an error.
+        if (studentOptional.isPresent()){
+            throw new IllegalStateException("Email already taken, please use a different email.");
+        }
+        //else
+        studentRepository.save(student);
+
     }
 }
