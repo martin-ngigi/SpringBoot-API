@@ -34,3 +34,13 @@ result:
 endpoint -> http://localhost:8080/api/v1/students/delete-student/1
 result:
 1
+
+4. PUT -> Update student:
+endpoint ->http://localhost:8080/api/v1/students/update-student/2
+body
+{
+    "name": "Ken 1",
+    "email": "ken1@gmail.com"
+}
+result:
+1

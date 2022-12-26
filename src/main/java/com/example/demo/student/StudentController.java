@@ -41,4 +41,16 @@ public class StudentController {
         studentService.deleteStudent(studentId);
     }
 
+    //http://localhost:8080/api/v1/students/update-student/1
+    @PutMapping("/update-student/{studentId}")
+    public void updateStudent(
+            @PathVariable("studentId") Long studentId,
+            @RequestBody Student student
+//            @RequestParam(required = false) String name,
+//            @RequestParam(required = false) String email
+    ){
+        //studentService.updateStudent(studentId, name, email);
+        studentService.updateStudent2(studentId, student);
+    }
+
 }
