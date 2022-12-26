@@ -35,4 +35,10 @@ public class StudentController {
         studentService.addNewStudent(student);
     }
 
+    //http://localhost:8080/api/v1/students/delete-student/1
+    @DeleteMapping("/delete-student/{studentId}")
+    public void deleteStudent(@PathVariable("studentId") Long studentId){
+        studentService.deleteStudent(studentId);
+    }
+
 }
