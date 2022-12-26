@@ -1,0 +1,19 @@
+1. GET -> Retrieve all students:
+endpoint ->     //http://localhost:8080/api/v1/students/students-list
+result:
+[
+    {
+        "id": 1,
+        "name": "Martin",
+        "email": "martinwainaina001@gmail.com",
+        "dob": "1999-11-23",
+        "age": 23
+    },
+    {
+        "id": 2,
+        "name": "Ken",
+        "email": "ken@gmail.com",
+        "dob": "2003-11-07",
+        "age": 19
+    }
+]
